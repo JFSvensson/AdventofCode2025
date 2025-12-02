@@ -12,6 +12,11 @@ for (let i = 0; i < splitFileContent.length; i++) {
     currentLine = currentLine.slice(1, lengthOfLine);
     currentLine = -parseInt(currentLine);
   }
+  else if (currentLine.startsWith('R')) {
+    currentLine = currentLine.slice(1, lengthOfLine);
+    currentLine = parseInt(currentLine);
+  }
+
   console.log(currentLine);
 }
 
