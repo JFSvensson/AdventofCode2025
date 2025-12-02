@@ -2,7 +2,6 @@ import fs from 'fs';
 
 let fileContent = fs.readFileSync('input.txt', 'utf-8');
 let splitFileContent = fileContent.split('\n');
-
 let movement = [];
 
 for (let i = 0; i < splitFileContent.length; i++) {
@@ -16,8 +15,9 @@ for (let i = 0; i < splitFileContent.length; i++) {
     currentLine = currentLine.slice(1, lengthOfLine);
     currentLine = parseInt(currentLine);
   }
-
+  movement.push(currentLine);
   console.log(currentLine);
 }
 
+console.log(movement);
 // let sequence = [];
