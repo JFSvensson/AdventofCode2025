@@ -2,7 +2,7 @@ import fs from 'fs';
 
 let fileContent = fs.readFileSync('input.txt', 'utf-8');
 let splitFileContent = fileContent.split('\n');
-let movement = [];
+let movements = [];
 
 for (let i = 0; i < splitFileContent.length; i++) {
   let currentLine = splitFileContent[i];
@@ -15,9 +15,24 @@ for (let i = 0; i < splitFileContent.length; i++) {
     currentLine = currentLine.slice(1, lengthOfLine);
     currentLine = parseInt(currentLine);
   }
-  movement.push(currentLine);
-  console.log(currentLine);
+  movements.push(currentLine);
 }
 
-console.log(movement);
-// let sequence = [];
+const startValue = 50;
+let currentValue = startValue;
+let zeroCount = 0;
+
+for (let k = 0; k < movements.length; k++) {
+    currentValue = currentValue + movements[k];
+    if (currentValue > 99) {
+        currentValue = currentValue - 100;
+    }
+    else if (currentValue < 0) {
+        currentValue = currentValue + 100;
+    }
+    if (currentValue === 0) {
+        zeroCount = zeroCount + 1;
+    }
+}
+console.log(zeroCount);
+    
