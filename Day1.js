@@ -23,16 +23,16 @@ let currentValue = startValue;
 let zeroCount = 0;
 
 for (let k = 0; k < movements.length; k++) {
-    currentValue = currentValue + movements[k];
-    if (currentValue > 99) {
-        currentValue = currentValue - 100;
-    }
-    else if (currentValue < 0) {
-        currentValue = currentValue + 100;
-    }
-    if (currentValue === 0) {
-        zeroCount = zeroCount + 1;
-    }
+  currentValue = currentValue + movements[k];
+  while (currentValue > 99) {
+    currentValue = currentValue - 100;
+  }
+  while (currentValue < 0) {
+    currentValue = currentValue + 100;
+  }
+  if (currentValue === 0) {
+    zeroCount = zeroCount + 1;
+  }
 }
 console.log(zeroCount);
     
