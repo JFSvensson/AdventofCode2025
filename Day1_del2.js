@@ -23,20 +23,33 @@ let currentValue = startValue;
 let zeroCount = 0;
 
 for (let k = 0; k < movements.length; k++) {
+  let timesWrapped = 0;
   let signOfValueBefore = Math.sign(currentValue);
   currentValue = currentValue + movements[k];
   let signOfValueAfter = Math.sign(currentValue);
-  if (signOfValueAfter !== 0) {
+  if (signOfValueAfter !== 0 && signOfValueBefore !== 0) {
     if (signOfValueBefore !== signOfValueAfter) {
     zeroCount = zeroCount + 1;
-    console.log('Zero crossed at movement index: ' + k);
+    console.log('Zero crossed at movement index: ' + k + ' '+ '(from ' + signOfValueBefore + ' to ' + signOfValueAfter + ')');
   } 
+  }
+  if (currentValue > 99) {
+    zeroCount = zeroCount + 1;
+  }
+  if (currentValue < 0) {
+    zeroCount = zeroCount + 1;
   }
   while (currentValue > 99) {
     currentValue = currentValue - 100;
+    timesWrapped = timesWrapped + 1;
+    console.log('Wrapped around above 99 at movement index: ' + k);
+    console.log('Times wrapped: ' + timesWrapped);
   }
   while (currentValue < 0) {
     currentValue = currentValue + 100;
+    timesWrapped = timesWrapped + 1;
+    console.log('Wrapped around below 0 at movement index: ' + k);
+    console.log('Times wrapped: ' + timesWrapped);
   }
   if (currentValue === 0) {
     zeroCount = zeroCount + 1;
