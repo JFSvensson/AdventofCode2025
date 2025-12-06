@@ -1,5 +1,5 @@
 import fs from 'fs';
-import CheckDirection from './CheckDirection.js';
+import CheckDirection from '../Day1/CheckDirection.js';
 
 function ReadInput(inputFile = 'input.txt') {
     let fileContent = fs.readFileSync(inputFile, 'utf-8');
