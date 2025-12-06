@@ -1,2 +1,5 @@
 # Ignore txt-files
 *.txt
+
+# ignore solution files
+sol.js
