@@ -2,4 +2,7 @@ import ReadInput from "./ReadInput.js";
 
 let batteryData = ReadInput('./data/input.txt');
 
-console.log('Battery Data: ' + batteryData);
+for (let i = 0; i < batteryData.length; i++) {
+    console.log('Data Line ' + i + ': ' + batteryData[i]);
+    //forEach??
+}
